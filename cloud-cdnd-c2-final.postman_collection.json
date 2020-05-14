@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "9am33gr6-af83-8996-be35-f06aa0b130ab",
+		"name": "cloud-cdnd-c2-final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorized Fetch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43gk564c-5d74-4af4-9b13-alcd32c3d027",
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{HOST}}/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+					"protocol": "http",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unauthorized Fetch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "No API key attached in headers"
+			},
+			"response": []
+		},
+		{
+			"name": "Missing query string",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5887df52-1889-4e1f-82ee-054ab37b450a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5e3ledfe-c8o3-430b-b917-ab6c60341c28",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5e362dfe-1889-56da-8886-e8a9c733a3f0",
+			"key": "HOST",
+			"value": "udagram-filter.us-east-1.elasticbeanstalk.com",
+			"type": "string"
+		},
+		{
+			"id": "5e332dfe-c833-4e1f-80de-f1228dd8713c",
+			"key": "API_KEY",
+			"value": "715930b0-bdda-4715-8f3c-7211cd11a389",
+			"type": "string"
+		}
+	]
+}
