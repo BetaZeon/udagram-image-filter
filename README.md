@@ -1,3 +1,10 @@
+End Point URL To Access Udagram : http://udagramfilterudacity-env.eba-pn7zvgeg.us-east-1.elasticbeanstalk.com/
+EXAMPLE for Udagram : http://udagramfilterudacity-env.eba-pn7zvgeg.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500
+
+
+
+Link to repository : ~ https://github.com/BetaZeon/udagram-image-filter/tree/master
+
 # Udagram Image Filtering Microservice
 
 Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.

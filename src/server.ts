@@ -35,13 +35,13 @@ import Jimp = require('jimp');
 
   /**************************************************************************** */
 
-  app.get("/filteredimage", async (requests, response) => {
+  app.get("/filteredimage", async (requests: express.Request, response: express:Response) => {
     //
     let { image_url } = requests.query;
     
     // return error if parameter is missing
     if (!image_url) {
-      response.status(200).send("image url missing")
+      response.status(400).send("image url missing")
     }else {
 
       // return error if image url format is incorrect
@@ -58,7 +58,7 @@ import Jimp = require('jimp');
               await deleteLocalFiles([image_response])
             })
           } else {
-            response.status(400).send("no image found in the given url")
+            response.status(422).send("no image found in the given url")
           }
         } catch (err) {
           // other errors
@@ -75,7 +75,7 @@ import Jimp = require('jimp');
 
   // Root Endpoint
   // Displays a simple message to the user
-  app.get( "/", async ( requests, response ) => {
+  app.get( "/", async (requests: express.Request, response: express:Response) => {
     response.send("try GET /filteredimage?image_url={{}}")
   } );
   
